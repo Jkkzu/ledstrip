@@ -37,7 +37,7 @@ function preencher () {
     }
 }
 function arco_iris () {
-    for (let index = 0; index < 4; index++) {
+    for (let index = 0; index < 10; index++) {
         strip.showRainbow(1, 360)
         for (let index = 0; index < 50; index++) {
             strip.rotate(1)
@@ -62,10 +62,19 @@ function padrao_cores () {
     range.showColor(neopixel.colors(NeoPixelColors.Yellow))
     range = strip.range(20, 5)
     range.showColor(neopixel.colors(NeoPixelColors.Indigo))
-    for (let index = 0; index < 10; index++) {
-        strip.show()
-        basic.pause(500)
-        strip.rotate(4)
+    t = 100
+    for (let index = 0; index < 4; index++) {
+        t += -15
+        for (let index = 0; index < 100; index++) {
+            strip.show()
+            basic.pause(t)
+            strip.rotate(4)
+        }
+        for (let index = 0; index < 100; index++) {
+            strip.show()
+            basic.pause(t)
+            strip.rotate(-4)
+        }
     }
 }
 let range: neopixel.Strip = null
