@@ -141,4 +141,5 @@ basic.forever(function () {
     arco_iris()
     strip.clear()
     drop_bit()
+    strip.clear()
 })
