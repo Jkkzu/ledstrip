@@ -1,10 +1,11 @@
 function preencher () {
-    for (let index = 0; index < 4; index++) {
+    t = 110
+    for (let index = 0; index < 10; index++) {
         for (let index = 0; index < 1; index++) {
             for (let n = 0; n <= 25; n++) {
                 range = strip.range(0, n)
                 range.showColor(neopixel.colors(NeoPixelColors.Red))
-                basic.pause(100)
+                basic.pause(t)
             }
             strip.clear()
         }
@@ -12,26 +13,27 @@ function preencher () {
             for (let n = 0; n <= 25; n++) {
                 range = strip.range(0, n)
                 range.showColor(neopixel.colors(NeoPixelColors.Blue))
-                basic.pause(100)
+                basic.pause(t)
                 strip.clear()
             }
-        }
-        for (let index = 0; index < 1; index++) {
-            for (let n = 0; n <= 25; n++) {
-                range = strip.range(0, n)
-                range.showColor(neopixel.colors(NeoPixelColors.Yellow))
-                basic.pause(100)
-                strip.clear()
+            for (let index = 0; index < 1; index++) {
+                for (let n = 0; n <= 25; n++) {
+                    range = strip.range(0, n)
+                    range.showColor(neopixel.colors(NeoPixelColors.Yellow))
+                    basic.pause(t)
+                    strip.clear()
+                }
+            }
+            for (let index = 0; index < 1; index++) {
+                for (let n = 0; n <= 25; n++) {
+                    range = strip.range(0, n)
+                    range.showColor(neopixel.colors(NeoPixelColors.Green))
+                    basic.pause(t)
+                    strip.clear()
+                }
             }
         }
-        for (let index = 0; index < 1; index++) {
-            for (let n = 0; n <= 25; n++) {
-                range = strip.range(0, n)
-                range.showColor(neopixel.colors(NeoPixelColors.Green))
-                basic.pause(100)
-                strip.clear()
-            }
-        }
+        t += -10
     }
 }
 function arco_iris () {
@@ -48,9 +50,6 @@ function arco_iris () {
             basic.pause(100)
         }
     }
-}
-function fillvarveloc () {
-	
 }
 function padrao_cores () {
     range = strip.range(0, 5)
@@ -70,6 +69,7 @@ function padrao_cores () {
     }
 }
 let range: neopixel.Strip = null
+let t = 0
 let strip: neopixel.Strip = null
 strip = neopixel.create(DigitalPin.P0, 25, NeoPixelMode.RGB)
 basic.forever(function () {
