@@ -86,6 +86,24 @@ function drop_bit () {
         basic.pause(200)
     }
 }
+function cores_aleatorio () {
+    for (let index = 0; index < 60; index++) {
+        for (let index = 0; index < 5; index++) {
+            range4 = strip.range(0, 5)
+            range4.showColor(neopixel.rgb(255, randint(0, 255), randint(0, 255)))
+            range5 = strip.range(5, 5)
+            range5.showColor(neopixel.rgb(randint(0, 255), 255, randint(0, 255)))
+            range6 = strip.range(10, 5)
+            range6.showColor(neopixel.rgb(randint(0, 255), randint(0, 255), 255))
+            range6 = strip.range(15, 5)
+            range6.showColor(neopixel.rgb(randint(0, 255), randint(0, 255), randint(0, 255)))
+            range6 = strip.range(20, 5)
+            basic.pause(200)
+            strip.rotate(5)
+            strip.show()
+        }
+    }
+}
 function arco_iris () {
     for (let index = 0; index < 10; index++) {
         strip.showRainbow(1, 360)
@@ -118,7 +136,7 @@ function padrao_cores () {
         for (let index = 0; index < 100; index++) {
             strip.show()
             basic.pause(t)
-            strip.rotate(4)
+            strip.rotate(5)
         }
         for (let index = 0; index < 100; index++) {
             strip.show()
@@ -127,6 +145,9 @@ function padrao_cores () {
         }
     }
 }
+let range6: neopixel.Strip = null
+let range5: neopixel.Strip = null
+let range4: neopixel.Strip = null
 let range3: neopixel.Strip = null
 let range2: neopixel.Strip = null
 let range: neopixel.Strip = null
@@ -134,12 +155,14 @@ let t = 0
 let strip: neopixel.Strip = null
 strip = neopixel.create(DigitalPin.P0, 25, NeoPixelMode.RGB)
 basic.forever(function () {
+    cores_aleatorio()
+    strip.clear()
     padrao_cores()
+    strip.clear()
+    drop_bit()
     strip.clear()
     preencher()
     strip.clear()
     arco_iris()
-    strip.clear()
-    drop_bit()
     strip.clear()
 })
